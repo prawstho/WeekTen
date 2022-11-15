@@ -1,0 +1,21 @@
+<html lang="en">
+    <%- include('./partials/head.ejs') %>
+    <body>
+    <%- include('./partials/nav.ejs') %>
+    <h1>PARTY</h1>
+    <div class="friends content">
+        <h2>Friends worthy of a Party.</h2>
+        <% if (friends.length > 0) { %>
+            <% friends.forEach(person => { %>
+                <p class="people"> 
+                    <b><%= person.title %> <%= person.name %></b> 
+                    <%= person.birth_year %> Rating: <%= person.rating %> 
+                </p>
+            <% }) %>
+        <% } else { %>
+            No records found.
+        <% } %>
+    </div>
+    </body>
+    <%- include('./partials/foot.ejs') %>
+</html>
