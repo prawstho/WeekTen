@@ -1,0 +1,16 @@
+<html lang="en">
+    <%- include('./partials/head.ejs') %>
+    <body>
+        <%- include('./partials/nav.ejs') %>
+        <div class="actors content">
+            <h2>Actors List</h2>
+            <% if (theActors.length > 0) { %>
+                <% theActors.forEach(actor => { %>
+                    <h3><%= actor.first_name %> <%= actor.last_name %>
+                    </h3> 
+                <% }) %>
+            <% } %>
+        </div>
+    </body>
+    <%- include('./partials/foot.ejs') %>
+</html>
