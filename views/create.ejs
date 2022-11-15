@@ -1,0 +1,18 @@
+<html lang="en">
+    <%- include('./partials/head.ejs') %>
+    <body>
+        <%- include('./partials/nav.ejs') %>
+        <div class="create content">
+            <form>
+                <label for="title">title:</label>
+                <input type="text" id="title" name="title" required>
+                <label for="name">name:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="description">description:</label>
+                <textarea id="description" name="description" required></textarea>
+                <button>Submit</button>
+              </form>
+        </div>
+    </body>
+    <%- include('./partials/foot.ejs') %>
+</html>
