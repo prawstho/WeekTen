@@ -5,6 +5,8 @@ const PORT = 3000;
 global.DEBUG = true;
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
+app.use(express.urlencoded({ extended: true, })); // This is important!
+// app.use(methodOverride('_method')); // So is this!
 
 app.get('/', (req, res) => {
     res.render('index.ejs', { name: 'Cassian Andor'});

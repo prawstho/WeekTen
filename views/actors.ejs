@@ -3,13 +3,28 @@
     <body>
         <%- include('./partials/nav.ejs') %>
         <div class="actors content">
-            <h2>Actors List</h2>
+            <form action="/actors" method="POST">
+                <b>Actors: </b></br> 
             <% if (theActors.length > 0) { %>
                 <% theActors.forEach(actor => { %>
-                    <h3><%= actor.first_name %> <%= actor.last_name %>
-                    </h3> 
-                <% }) %>
+                    <b><%= actor.first_name %> <%= actor.last_name %></b></br>
+                    <!--
+                    <a href="<%=actor.actor_id%>/edit?fname=<%=actor.first_name%>&lname=<%=actor.last_name%>">edit</a>
+                    <a href="<%=actor.actor_id%>/delete?fname=<%=actor.first_name%>&lname=<%=actor.last_name%>">delete</a>
+                    <a href="<%=actor.actor_id%>/replace?fname=<%=actor.first_name%>&lname=<%=actor.last_name%>">replace</a></br> 
+                    --> 
+                    <% }) %>
             <% } %>
+            </br><label>Add Actor:</label></br>
+            <label>First Name:
+                <input type="text" id="firstName" name="firstName" value="<%= locals.firstName %>" required>
+            </label>
+            <label>Last Name:
+                <input type="text" id="lastName" name="lastName" value="<%= locals.lastName %>" required>
+            </label>
+            </br>
+            <button>POST</button>
+        </form>
         </div>
     </body>
     <%- include('./partials/foot.ejs') %>

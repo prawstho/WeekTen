@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { getActors, getActorByActorId } = require('../services/actors.dal')
+const { getActors, getActorByActorId, addActor } = require('../services/actors.dal')
 
 router.get('/', async (req, res) => {
     // const theActors = [
@@ -29,6 +29,17 @@ router.get('/:id', async (req, res) => {
     } catch {
         res.render('503');
     }
+});
+
+router.post('/', async (req, res) => {
+    if(DEBUG) console.log("actors.POST");
+    try {
+        await addActor(req.body.firstName, req.body.lastName );
+        res.redirect('/actors/');
+    } catch {
+        // log this error to an error log file.
+        res.render('503');
+    } 
 });
 
 module.exports = router
