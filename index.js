@@ -21,6 +21,9 @@ app.use('/actors', actorsRouter);
 const mealsRouter = require('./routes/meals')
 app.use('/meals', mealsRouter);
 
+const tasksRouter = require('./routes/tasks.js')
+app.use('/tasks', tasksRouter);
+
 app.use((req, res) => {
     res.status(404).render('404');
 });
