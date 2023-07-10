@@ -1,0 +1,17 @@
+<html lang="en">
+    <%- include('./partials/head.ejs') %>
+    <body>
+        <%- include('./partials/nav.ejs') %>
+        <div class="staff content">
+                <b>Staff: </b></br> 
+            <% if (theStaff.length > 0) { %>
+                <% theStaff.forEach(person => { %>
+                    <b><%= person.first_name %> <%= person.last_name %>: <%= person.email %></b></br>
+                    <%= person.address %> <%= person.district %> <%= person.city %> <%= person.postal_code %></br>
+                    <%= person.phone %> </br></br>
+                    <% }) %>
+            <% } %>
+        </div>
+    </body>
+    <%- include('./partials/foot.ejs') %>
+</html>
