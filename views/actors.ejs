@@ -5,16 +5,13 @@
         <div class="actors content">
             <form action="/actors" method="POST">
                 <b>Actors: </b></br> 
-            <% if (theActors.length > 0) { %>
-                <% theActors.forEach(actor => { %>
-                    <b><%= actor.first_name %> <%= actor.last_name %></b></br>
-                    <!--
-                    <a href="<%=actor.actor_id%>/edit?fname=<%=actor.first_name%>&lname=<%=actor.last_name%>">edit</a>
-                    <a href="<%=actor.actor_id%>/delete?fname=<%=actor.first_name%>&lname=<%=actor.last_name%>">delete</a>
-                    <a href="<%=actor.actor_id%>/replace?fname=<%=actor.first_name%>&lname=<%=actor.last_name%>">replace</a></br> 
-                    --> 
+                <% if (theActors.length > 0) { %>
+                    <% theActors.forEach(actor => { %>
+                        <b><%= actor.first_name %> <%= actor.last_name %></b></br>
                     <% }) %>
-            <% } %>
+                <% } else { %>
+                    <p>No actors found.</p>
+                <% } %>
             </br><label>Add Actor:</label></br>
             <label>First Name:
                 <input type="text" id="firstName" name="firstName" value="<%= locals.firstName %>" required>

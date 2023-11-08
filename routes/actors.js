@@ -2,7 +2,9 @@ const express = require('express');
 const router = express.Router();
 const { getActors, getActorByActorId, addActor } = require('../services/actors.dal')
 
+// is really http://localhost:3000/actors/
 router.get('/', async (req, res) => {
+    if(DEBUG) console.log("actors.GET");
     // const theActors = [
     //     {first_name: 'Youn', last_name: 'Yuh-jung'},
     //     {first_name: 'Laura', last_name: 'Dern'},
@@ -10,12 +12,15 @@ router.get('/', async (req, res) => {
     // ];
     try {
         let theActors = await getActors(); // from postgresql
+        if(DEBUG) console.log("inside the actors.route.GET success");
+        if(DEBUG) console.log(theActors);
         res.render('actors', {theActors});
     } catch {
         res.render('503');
     }
 });
 
+// is really http://localhost:3000/actors/123
 router.get('/:id', async (req, res) => {
     // const anActor = [
     //     {first_name: 'Regina', last_name: 'King'}

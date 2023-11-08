@@ -9,7 +9,7 @@ app.use(express.urlencoded({ extended: true, })); // This is important!
 // app.use(methodOverride('_method')); // So is this!
 
 app.get('/', (req, res) => {
-    res.render('index.ejs', { name: 'Cassian Andor'});
+    res.render('index.ejs', { name: 'Mando'});
 });
 app.get('/about', (request, response) => {
     response.render('about.ejs');
