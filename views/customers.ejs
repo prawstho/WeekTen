@@ -1,0 +1,15 @@
+<html lang="en">
+    <%- include('./partials/head.ejs') %>
+    <body>
+        <%- include('./partials/nav.ejs') %>
+        <div class="staff content">
+    <h1>Customers</h1>
+        <% customers.forEach(function(customer) { %>
+            <b><%= customer.first_name %> <%= customer.last_name %></b>, <%= customer.email %></br>
+            <%= customer.address %> <%= customer.district %> <%= customer.city %> <%= customer.postal_code %></br>
+            <%= customer.phone %> </br></br>
+            <% }); %>
+</div>
+</body>
+<%- include('./partials/foot.ejs') %>
+</html>

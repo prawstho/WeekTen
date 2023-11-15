@@ -21,6 +21,9 @@ app.use('/actors', actorsRouter);
 const staffRouter = require('./routes/staff')
 app.use('/staff', staffRouter);
 
+const customersRouter = require('./routes/customers')
+app.use('/cust', customersRouter);
+
 app.use((req, res) => {
     res.status(404).render('404');
 });
