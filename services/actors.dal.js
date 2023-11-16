@@ -42,12 +42,13 @@ var addActor = function(fname, lname) {
   if(DEBUG) console.log("actors.dal.addActor()");
   return new Promise(function(resolve, reject) {
     const sql = "INSERT INTO public.actor(first_name, last_name) \
-        VALUES ($1, $2);";
+        VALUES ($1, $2) RETURNING actor_id, first_name, last_name;";
     dal.query(sql, [fname, lname], (err, result) => {
       if (err) {
           if(DEBUG) console.log(err);
           reject(err);
         } else {
+          if(DEBUG) console.log(`Success: New PK(${result.rows[0].actor_id})`);
           resolve(result.rows);
         }
     }); 
