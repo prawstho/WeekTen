@@ -6,6 +6,9 @@ describe('ACTOR TABLE OPERATIONS:', () => {
   let rowCount = 0;
   beforeAll(async() => {
     const result = await dal.query('SELECT COUNT(*) FROM actor');
+    // need to confirm the number of rows in the actor table is the same as the
+    // current value of the sequence 
+    // this should be automated as part of the testing
     rowCount = parseInt(result.rows[0].count, 10);
     // Insert known data
     const knownActors = [

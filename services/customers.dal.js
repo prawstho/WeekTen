@@ -4,7 +4,7 @@ const dal = require("./db");
 var getCustomers = function() {
   if(DEBUG) console.log("customers.dal.getCustomers()");
   return new Promise(function(resolve, reject) {
-    const sql = "SELECT * FROM customer_info";
+    const sql = "SELECT * FROM customer_list";
     dal.query(sql, [], (err, result) => {
       if (err) {
         // logging should go here

@@ -4,7 +4,7 @@ const dal = require("./db");
 var getStaff = function() {
   if(DEBUG) console.log("staff.dal.getStaff()");
   return new Promise(function(resolve, reject) {
-    const sql = "SELECT * FROM staff_info"
+    const sql = "SELECT * FROM staff_list"
     dal.query(sql, [], (err, result) => {
       if (err) {
         // logging should go here
